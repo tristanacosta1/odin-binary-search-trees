@@ -1,6 +1,6 @@
-# odin-core-template
+# odin-binary-search-trees
 
-A brief description of what this script or algorithm does and its purpose.
+A self-balancing Binary Search Tree implementation written in JavaScript. It creates balanced tree from arrays and features various utitilities for node manipulation, traversal, and command-line visualization.
 
 ## Built With
 
@@ -10,9 +10,12 @@ A brief description of what this script or algorithm does and its purpose.
 
 ## Features
 
-- Feature 1
-- Feature 2
-- Feature 3
+- Array-to-BST Construction
+- Node Operations
+- Tree Traversal Utilities
+- Tree Analysis & Metrics
+- Self-Rebalancing
+- Visualizer & Driver Script
 
 ## Installation
 
@@ -30,13 +33,13 @@ Ensure you have the following installed on your system:
 1. Clone the repository:
 
 ```bash
-git clone <repository-url>
+git clone https://github.com/tristanacosta1/odin-binary-search-trees.git
 ```
 
 2. Enter the repository:
 
 ```bash
-cd <repository-name>
+cd odin-binary-search-trees
 ```
 
 3. Install project dependencies:

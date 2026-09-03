@@ -1,7 +1,7 @@
 {
     "name": "odin-core-template",
     "version": "1.0.0",
-    "description": "Core template for JavaScript logic, algorithms, and data structures.",
+    "description": "A balanced binary search tree implementation that builds trees from arrays, featuring balancing, tree traversals, and tree inspection utilities.",
     "private": true,
     "type": "module",
     "main": "src/index.js",
