@@ -3,6 +3,7 @@ export default class Tree {
         this.root = this.buildTree(array);
     }
     buildTree(array) {
-        if (!Array.isArray(array)) throw new Error("Must be initialized with arrays.");
+        if (!Array.isArray(array) || array.length === 0)
+            throw new Error("Must be initialized with non-empty arrays.");
     }
 }
