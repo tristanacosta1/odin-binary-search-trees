@@ -39,6 +39,10 @@ describe("Tree Class", () => {
             const tree = new Tree([1, 2, 3]);
             expect(tree.includes("foo")).toBe(false);
         });
+        test("returns true if value is in the tree", () => {
+            const tree = new Tree([1, 2, 3]);
+            expect(tree.includes(1)).toBe(true);
+        });
     });
 
     describe("inOrderForEach()", () => {

@@ -16,6 +16,11 @@ export default class Tree {
         return node;
     }
     includes(value) {
+        let root = this.root;
+        while (root !== null) {
+            if (root.data === value) return true;
+            value < root.data ? (root = root.left) : (root = root.right);
+        }
         return false;
     }
     inOrderForEach(callback) {
