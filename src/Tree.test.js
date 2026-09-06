@@ -28,9 +28,7 @@ describe("Tree Class", () => {
         test("builds tree properly when passed an unsorted array with duplicates", () => {
             const tree = new Tree([5, 2, 4, 4, 3, 1]);
             const callback = jest.fn();
-
             tree.inOrderForEach(callback);
-
             const visited = callback.mock.calls.map(([data]) => data);
             expect(visited).toEqual([1, 2, 3, 4, 5]);
         });
@@ -41,6 +39,13 @@ describe("Tree Class", () => {
             const tree = new Tree([1, 2, 3]);
             expect(() => tree.inOrderForEach()).toThrow("Callback function is required.");
             expect(() => tree.inOrderForEach("foo")).toThrow("Callback function is required.");
+        });
+        test("visits nodes in order", () => {
+            const tree = new Tree([5, 2, 4, 4, 3, 1]);
+            const callback = jest.fn();
+            tree.inOrderForEach(callback);
+            const visited = callback.mock.calls.map(([data]) => data);
+            expect(visited).toEqual([1, 2, 3, 4, 5]);
         });
     });
 });
