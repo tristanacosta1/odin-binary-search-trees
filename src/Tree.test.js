@@ -35,5 +35,12 @@ describe("Tree Class", () => {
             expect(visited).toEqual([1, 2, 3, 4, 5]);
         });
     });
-    // Standalone tests for inOrderForEach()
+
+    describe("inOrderForEach()", () => {
+        test("throws when provided a non-function or nothing", () => {
+            const tree = new Tree([1, 2, 3]);
+            expect(() => tree.inOrderForEach()).toThrow("Callback function is required.");
+            expect(() => tree.inOrderForEach("foo")).toThrow("Callback function is required.");
+        });
+    });
 });
