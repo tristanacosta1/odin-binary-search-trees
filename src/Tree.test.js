@@ -16,7 +16,13 @@ describe("Tree Class", () => {
         });
         test("sets the middle element of the array as the root", () => {
             const tree = new Tree([1, 2, 3]);
-            expect(tree.root).toBe(2);
+            expect(tree.root.data).toBe(2);
+        });
+        test("creates a node for each element and link them with each other", () => {
+            const tree = new Tree([1, 2, 3]);
+            expect(tree.root.data).toBe(2);
+            expect(tree.root.left.data).toBe(1);
+            expect(tree.root.right.data).toBe(3);
         });
         // Test with arrays with duplicate values
         // Test with unsorted arrays
