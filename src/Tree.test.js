@@ -24,8 +24,16 @@ describe("Tree Class", () => {
             expect(tree.root.left.data).toBe(1);
             expect(tree.root.right.data).toBe(3);
         });
-        // Test with arrays with duplicate values
-        // Test with unsorted arrays
-        // Test if nodes are properly set
+        // Test with arrays with duplicate and unsorted elements
+        test("builds tree properly when passed an unsorted array with duplicates", () => {
+            const tree = new Tree([5, 2, 4, 4, 3, 1]);
+            const callback = jest.fn();
+
+            tree.inOrderForEach(callback);
+
+            const visited = callback.mock.calls.map(([data]) => data);
+            expect(visited).toEqual([1, 2, 3, 4, 5]);
+        });
     });
+    // Standalone tests for inOrderForEach()
 });
