@@ -15,6 +15,9 @@ export default class Tree {
         node.right = this.buildTree(array, mid + 1, end);
         return node;
     }
+    includes(value) {
+        return false;
+    }
     inOrderForEach(callback) {
         if (!callback || typeof callback !== "function")
             throw new Error("Callback function is required.");

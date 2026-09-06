@@ -34,6 +34,13 @@ describe("Tree Class", () => {
         });
     });
 
+    describe("includes()", () => {
+        test("returns false if value is not in the tree", () => {
+            const tree = new Tree([1, 2, 3]);
+            expect(tree.includes("foo")).toBe(false);
+        });
+    });
+
     describe("inOrderForEach()", () => {
         test("throws when provided a non-function or nothing", () => {
             const tree = new Tree([1, 2, 3]);
