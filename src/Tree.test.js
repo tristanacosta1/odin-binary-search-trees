@@ -14,12 +14,12 @@ describe("Tree Class", () => {
             const tree = new Tree([1, 2, 3]);
             expect(tree.root).toBeDefined();
         });
+        test("sets the middle element of the array as the root", () => {
+            const tree = new Tree([1, 2, 3]);
+            expect(tree.root).toBe(2);
+        });
+        // Test with arrays with duplicate values
+        // Test with unsorted arrays
+        // Test if nodes are properly set
     });
-    test("sets the middle element of the array as the root", () => {
-        const tree = new Tree([1, 2, 3]);
-        expect(tree.root).toBe(3);
-    });
-    // Test if nodes are properly set
-    // Test with arrays with duplicate values
-    // Test with unsorted arrays
 });
