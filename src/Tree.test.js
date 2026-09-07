@@ -67,6 +67,11 @@ describe("Tree Class", () => {
             expect(tree.deleteItem(4)).toBeUndefined();
             expect(JSON.stringify(tree.root)).toBe(initialTree);
         });
+        test("removes a node with no children", () => {
+            const tree = new Tree([1, 2, 3]);
+            tree.deleteItem(3);
+            expect(tree.root.right).toBeNull();
+        });
     });
 
     describe("inOrderForEach()", () => {

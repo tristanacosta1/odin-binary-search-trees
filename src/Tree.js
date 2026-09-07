@@ -41,8 +41,19 @@ export default class Tree {
     }
     deleteItem(value) {
         let root = this.root;
-        while (!root) {
-            if (value === root.data) root = null;
+        let prev = null;
+        while (root) {
+            if (value === root.data) {
+                // If node has no children
+                root.data < prev.data ? (prev.left = null) : (prev.right = null);
+            }
+            if (value < root.data) {
+                prev = root;
+                root = root.left;
+            } else {
+                prev = root;
+                root = root.right;
+            }
         }
         return;
     }
