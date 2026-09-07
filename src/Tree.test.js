@@ -52,6 +52,12 @@ describe("Tree Class", () => {
             tree.insert(4);
             expect(tree.root.right.right.data).toBe(4);
         });
+        test("does nothing if the value already exists in the tree", () => {
+            const tree = new Tree([1, 2, 3]);
+            const initialTree = JSON.stringify(tree.root);
+            expect(tree.insert(3)).toBeUndefined();
+            expect(JSON.stringify(tree.root)).toBe(initialTree);
+        });
     });
 
     describe("inOrderForEach()", () => {
