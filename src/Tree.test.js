@@ -60,6 +60,15 @@ describe("Tree Class", () => {
         });
     });
 
+    describe("deleteItem()", () => {
+        test("does nothing if the value does not exist in the tree", () => {
+            const tree = new Tree([1, 2, 3]);
+            const initialTree = JSON.stringify(tree.root);
+            expect(tree.deleteItem(4)).toBeUndefined();
+            expect(JSON.stringify(tree.root)).toBe(initialTree);
+        });
+    });
+
     describe("inOrderForEach()", () => {
         test("throws when provided a non-function or nothing", () => {
             const tree = new Tree([1, 2, 3]);

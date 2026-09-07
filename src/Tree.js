@@ -39,6 +39,13 @@ export default class Tree {
         const node = new Node(value);
         value < prev.data ? (prev.left = node) : (prev.right = node);
     }
+    deleteItem(value) {
+        let root = this.root;
+        while (!root) {
+            if (value === root.data) root = null;
+        }
+        return;
+    }
     inOrderForEach(callback) {
         if (!callback || typeof callback !== "function")
             throw new Error("Callback function is required.");
