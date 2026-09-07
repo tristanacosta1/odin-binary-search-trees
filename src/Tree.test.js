@@ -9,6 +9,7 @@ describe("Tree Class", () => {
             });
         });
     });
+
     describe("root", () => {
         test("is set when array is valid", () => {
             const tree = new Tree([1, 2, 3]);
@@ -42,6 +43,14 @@ describe("Tree Class", () => {
         test("returns true if value is in the tree", () => {
             const tree = new Tree([1, 2, 3]);
             expect(tree.includes(1)).toBe(true);
+        });
+    });
+
+    describe("insert()", () => {
+        test("inserts value if it does not exist in the tree and retains binary search property", () => {
+            const tree = new Tree([1, 2, 3]);
+            tree.insert(4);
+            expect(tree.root.right.right.data).toBe(4);
         });
     });
 

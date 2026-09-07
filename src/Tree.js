@@ -23,6 +23,22 @@ export default class Tree {
         }
         return false;
     }
+    insert(value) {
+        let root = this.root;
+        let prev = null;
+        while (root !== null) {
+            if (root.data === value) return;
+            if (value < root.data) {
+                prev = root;
+                root = root.left;
+            } else {
+                prev = root;
+                root = root.right;
+            }
+        }
+        const node = new Node(value);
+        value < prev.data ? (prev.left = node) : (prev.right = node);
+    }
     inOrderForEach(callback) {
         if (!callback || typeof callback !== "function")
             throw new Error("Callback function is required.");
