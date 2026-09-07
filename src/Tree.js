@@ -44,8 +44,31 @@ export default class Tree {
         let prev = null;
         while (root) {
             if (value === root.data) {
-                // If node has no children
-                root.data < prev.data ? (prev.left = null) : (prev.right = null);
+                if (root.left === null && root.right === null) {
+                    root.data < prev.data ? (prev.left = null) : (prev.right = null);
+                    return;
+                }
+                if (root.left === null) {
+                    let parent = prev;
+                    root = root.right;
+                    while (root.right) {
+                        prev = root;
+                        root = root.right;
+                    }
+                    prev.right = null;
+                    parent.data < root.data ? (parent.right = root) : (parent.left = root);
+                    return;
+                } else {
+                    let parent = prev;
+                    root = root.left;
+                    while (root.right) {
+                        prev = root;
+                        root = root.right;
+                    }
+                    prev.right = null;
+                    parent.data < root.data ? (parent.right = root) : (parent.left = root);
+                    return;
+                }
             }
             if (value < root.data) {
                 prev = root;

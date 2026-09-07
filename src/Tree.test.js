@@ -67,10 +67,15 @@ describe("Tree Class", () => {
             expect(tree.deleteItem(4)).toBeUndefined();
             expect(JSON.stringify(tree.root)).toBe(initialTree);
         });
-        test("removes a node with no children", () => {
+        test("removes nodes with no children", () => {
             const tree = new Tree([1, 2, 3]);
             tree.deleteItem(3);
             expect(tree.root.right).toBeNull();
+        });
+        test("removes nodes with one child", () => {
+            const tree = new Tree([1, 2, 3, 4]);
+            tree.deleteItem(3);
+            expect(tree.root.right.data).toBe(4);
         });
     });
 
