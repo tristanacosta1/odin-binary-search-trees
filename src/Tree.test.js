@@ -77,6 +77,13 @@ describe("Tree Class", () => {
             tree.deleteItem(3);
             expect(tree.root.right.data).toBe(4);
         });
+        test("removes nodes with two children", () => {
+            const tree = new Tree([1, 2, 3]);
+            tree.deleteItem(2);
+            expect(tree.root.data).toBe(1);
+            expect(tree.root.left).toBeNull();
+            expect(tree.root.right.data).toBe(3);
+        });
     });
 
     describe("inOrderForEach()", () => {
