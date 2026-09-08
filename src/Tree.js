@@ -44,67 +44,40 @@ export default class Tree {
         let prev = null;
         while (root) {
             if (value === root.data) {
+                let parent = prev;
+                let match = root;
+
                 if (root.left === null && root.right === null) {
                     root.data < prev.data ? (prev.left = null) : (prev.right = null);
-                    return;
-                }
-                if (root.left === null) {
-                    let parent = prev;
-                    root = root.right;
+                } else if (root.left === null || root.right === null) {
+                    root.left === null ? (root = root.right) : (root = root.left);
                     while (root.right) {
                         prev = root;
                         root = root.right;
                     }
                     prev.right = null;
                     parent.data < root.data ? (parent.right = root) : (parent.left = root);
-                    return;
-                }
-                if (root.right === null) {
-                    let parent = prev;
-                    root = root.left;
-                    while (root.right) {
-                        prev = root;
-                        root = root.right;
-                    }
-                    prev.right = null;
-                    parent.data < root.data ? (parent.right = root) : (parent.left = root);
-                    return;
-                }
-                let parent = prev;
-                const match = root;
-                root = root.left;
-                if (!root.right) {
-                    root.left = null;
-                    root.right = match.right;
-                    if (parent) {
-                        root.data < parent.data ? (parent.left = root) : (parent.right = root);
-                        return;
-                    } else {
-                        this.root = root;
-                        return;
-                    }
-                }
-                while (root.right) {
-                    prev = root;
-                    root = root.right;
-                }
-                prev.right = null;
-                if (!parent) {
-                    root.left = match.left;
-                    root.right = match.right;
-                    this.root = root;
-                    return;
-                }
-                if (parent.data < root.data) {
-                    parent.right = root;
-                    root.left = match.left;
-                    root.right = match.right;
-                    return;
                 } else {
-                    parent.left = root;
-                    root.left = match.left;
-                    root.right = match.right;
-                    return;
+                    prev = root;
+                    root = root.left;
+                    while (root) {
+                        if (!root.right) {
+                            prev.data > root.data ? (prev.left = null) : (prev.right = null);
+                            root.left = match.left;
+                            root.right = match.right;
+                            if (parent) {
+                                root.data < parent.data
+                                    ? (parent.left = root)
+                                    : (parent.right = root);
+                                return;
+                            } else {
+                                this.root = root;
+                                return;
+                            }
+                        }
+                        prev = root;
+                        root = root.right;
+                    }
                 }
             }
             if (value < root.data) {
